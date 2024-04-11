@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+    font-family: Red_Hat_Text;
+    src: url(RedHatText-Regular.ttf);
+}
+
+:root {
+    --Grayishblue: rgb(132, 134, 169);
+    --Softred: rgb(251, 96, 135);
+    --Darkdesaturatedblue: rgb(52, 54, 80);
+    --Verydarkblue: rgb(30, 31, 41);
+    --Verydarkblackblue: rgb(25, 26, 36);
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+body {
+    /* background-color: var(--Verydarkblue);
+    background-image: url(images/bg-stars.svg), url(images/pattern-hills.svg);
+    background-repeat: no-repeat;
+    background-position: top, bottom; */
+    background: url(bg-stars.svg) no-repeat left top, url(pattern-hills.svg) no-repeat bottom left, var(--Verydarkblue);
+    font-family: Red_Hat_Text;
+    font-weight: 700;
+    color: var(--Grayishblue);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 1440px;
+    height: 800px;
+}
+
+.container {
+    width: 695px;
+    height: 315px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 138px;
+    letter-spacing: 7px;
+}
+
+.title {
+    font-size: 19px;
+}
+
+.countdown {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.countdown div {
+    display: grid;
+    place-content: center;
+    gap: 10px;
+}
+
+.countdown .label {
+    opacity: 0.5;
+    font-size: 10px;
+}
+
+.countdown .count {
+    width: 150px;
+    height: 145px;
+    background-color: var(--Darkdesaturatedblue);
+    border-radius: 10px;
+    box-shadow: 0px 9px var(--Verydarkblackblue);
+    position: relative;
+    overflow: hidden;
+}
+
+.countdown .count::before,
+.countdown .count::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--Verydarkblue);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2
+}
+
+.countdown .count::before {
+    left: -5px;
+}
+
+.countdown .count::after {
+    right: -5px;
+}
+
+.countdown .count .line {
+    width: 150px;
+    height: 1px;
+    background-color: rgb(0, 0, 0, 0.3);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.countdown .count .overlay {
+    width: 150px;
+    height: 73px;
+    background-color: rgb(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.countdown .count .num {
+    font-size: 83px;
+    color: var(--Softred);
+}
+
+.social {
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+    width: 100px;
+    justify-content: space-around;
+}
+
+@media only screen and (max-width: 500px) and (min-width:375px) {
+    body {
+        width: 375px;
+        height: 667px;
+    }
+
+    .container {
+        width: 329px;
+        height: 192px;
+        margin-top: 143px;
+    }
+
+    .title {
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    .countdown div {
+        gap: 15px;
+    }
+
+    .countdown .label {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .countdown .count {
+        width: 71px;
+        height: 67px;
+    }
+
+    .countdown .count .line {
+        width: 70px;
+    }
+
+    .countdown .count .overlay {
+        width: 71px;
+        height: 67px;
+    }
+
+    .countdown .count .num {
+        font-size: 40px;
+        position: absolute;
+        top: 50%;
+        left: 40px;
+        transform: translate(-50%, -50%);
+    }
+}
